@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar";
 
@@ -25,7 +25,7 @@ function OwnerChangePassword() {
 
     setLoading(true);
     try {
-      await axios.put(
+      await API.put(
         "/api/auth/update-password",
         {
           currentPassword: form.currentPassword,

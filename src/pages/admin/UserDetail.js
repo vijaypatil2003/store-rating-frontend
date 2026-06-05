@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar";
 
@@ -14,7 +14,7 @@ function AdminUserDetail() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`/api/admin/users/${id}`, {
+        const res = await API.get(`/api/admin/users/${id}`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setUserData(res.data);

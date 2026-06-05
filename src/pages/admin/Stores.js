@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar";
 
@@ -15,7 +15,7 @@ function AdminStores() {
   const fetchStores = async () => {
     try {
       const params = { ...filters, sortBy: sort.field, order: sort.order };
-      const res = await axios.get("/api/admin/stores", {
+      const res = await API.get("/api/admin/stores", {
         headers: { Authorization: `Bearer ${user.token}` },
         params,
       });

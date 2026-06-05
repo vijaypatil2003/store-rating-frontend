@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar";
 
@@ -21,7 +21,7 @@ function AdminAddStore() {
   useEffect(() => {
     const fetchOwners = async () => {
       try {
-        const res = await axios.get("/api/admin/users", {
+        const res = await API.get("/api/admin/users", {
           headers: { Authorization: `Bearer ${user.token}` },
           params: { role: "owner" },
         });
@@ -39,7 +39,7 @@ function AdminAddStore() {
     setSuccess("");
     setLoading(true);
     try {
-      await axios.post("/api/admin/stores", form, {
+      await API.post("/api/admin/stores", form, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setSuccess("Store created successfully!");

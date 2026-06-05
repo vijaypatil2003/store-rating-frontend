@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
@@ -13,7 +13,7 @@ function AdminDashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get("/api/admin/dashboard", {
+        const res = await API.get("/api/admin/dashboard", {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setStats(res.data);

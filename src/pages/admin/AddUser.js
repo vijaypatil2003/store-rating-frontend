@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar";
 
@@ -24,7 +24,7 @@ function AdminAddUser() {
     setSuccess("");
     setLoading(true);
     try {
-      await axios.post("/api/admin/users", form, {
+      await API.post("/api/admin/users", form, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setSuccess("User created successfully!");
@@ -52,7 +52,9 @@ function AdminAddUser() {
         </button>
 
         <div className="mb-7">
-          <h2 className="text-[22px] font-semibold text-[var(--text)]">Add New User</h2>
+          <h2 className="text-[22px] font-semibold text-[var(--text)]">
+            Add New User
+          </h2>
         </div>
 
         <div className="bg-white border border-[var(--border)] rounded-xl p-7 max-w-[520px]">
@@ -71,7 +73,9 @@ function AdminAddUser() {
             <div className="mb-4">
               <label className={labelClass}>
                 Full Name{" "}
-                <span className="font-normal text-[var(--text-muted)]">(8–60 characters)</span>
+                <span className="font-normal text-[var(--text-muted)]">
+                  (8–60 characters)
+                </span>
               </label>
               <input
                 type="text"

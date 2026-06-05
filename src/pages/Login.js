@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import API from "../api";
 import { useAuth } from "../context/AuthContext";
 
 function Login() {
@@ -15,7 +15,7 @@ function Login() {
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post("/api/auth/login", form);
+      const res = await API.post("/api/auth/login", form);
       login(res.data);
       if (res.data.role === "admin") navigate("/admin/dashboard");
       else if (res.data.role === "user") navigate("/user/stores");

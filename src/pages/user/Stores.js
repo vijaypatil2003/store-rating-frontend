@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar";
 import StarRating from "../../components/StarRating";
@@ -16,7 +16,7 @@ function UserStores() {
   const fetchStores = async () => {
     try {
       const params = { ...filters, sortBy: sort.field, order: sort.order };
-      const res = await axios.get("/api/user/stores", {
+      const res = await API.get("/api/user/stores", {
         headers: { Authorization: `Bearer ${user.token}` },
         params,
       });
@@ -39,7 +39,7 @@ function UserStores() {
     const value = ratingInput[storeId];
     if (!value) return;
     try {
-      await axios.post(
+      await API.post(
         "/api/user/rating",
         { storeId, value },
         { headers: { Authorization: `Bearer ${user.token}` } },
