@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6366f1;
+  --primary-light: #eef2ff;
+  /* --primary-dark: #1d4ed8; */
+  --primary-dark: #021959;
+  --white: #ffffff;
+  --border: #e5e7eb;
+  --text-muted: #6b7280;
+  --danger: #ef4444;
+}
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #f7f8fc;
+  color: #1e2330;
+}
+
+:root {
+  --primary: #3b5bdb;
+  --primary-dark: #2f4ac0;
+  --primary-light: #eef1ff;
+  --danger: #e03131;
+  --success: #2f9e44;
+  --text: #1e2330;
+  --text-muted: #6b7280;
+  --border: #e2e5ef;
+  --white: #ffffff;
+  --bg: #f7f8fc;
+  --card: #ffffff;
+}
+
+input,
+select,
+textarea {
+  font-family: "DM Sans", sans-serif;
+}
+
+button {
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+} */
